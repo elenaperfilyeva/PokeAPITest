@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "1bca04f0-eaa8-4785-968e-ede75226b116",
+		"name": "pokeApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "berry",
+			"item": [
+				{
+					"name": "berryById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4c9ad8b2-4070-4934-bb2e-2403ea03a70f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"\r",
+									"pm.test(\"soil_dryness\", function(){\r",
+									"    pm.expect(jsonData.soil_dryness).to.eql(6);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"smoothness\", function(){\r",
+									"    pm.expect(jsonData.smoothness).to.eql(30);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"size\", function(){\r",
+									"    pm.expect(jsonData.size).to.eql(252);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"natural_gift_power\", function(){\r",
+									"    pm.expect(jsonData.natural_gift_power).to.eql(60);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"name\", function(){\r",
+									"    pm.expect(jsonData.name).to.eql(\"payapa\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"max_harvest\", function(){\r",
+									"    pm.expect(jsonData.max_harvest).to.eql(5);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"id\", function(){\r",
+									"    pm.expect(jsonData.id).to.eql(45);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"growth_time\", function(){\r",
+									"    pm.expect(jsonData.growth_time).to.eql(18);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"firmness name is correct\", function(){\r",
+									"    pm.expect(jsonData.firmness.name).to.eql(\"soft\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"firmness url is correct\", function(){\r",
+									"    pm.expect(jsonData.firmness.url).to.eql(\"https://pokeapi.co/api/v2/berry-firmness/2/\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"item name is correct\", function(){\r",
+									"    pm.expect(jsonData.item.name).to.eql(\"payapa-berry\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"item url is correct\", function(){\r",
+									"    pm.expect(jsonData.item.url).to.eql(\"https://pokeapi.co/api/v2/item/170/\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"natural_gift_type name is correct\", function(){\r",
+									"    pm.expect(jsonData.natural_gift_type.name).to.eql(\"psychic\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"natural_gift_type url is correct\", function(){\r",
+									"    pm.expect(jsonData.natural_gift_type.url).to.eql(\"https://pokeapi.co/api/v2/type/14/\");\r",
+									"})\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "f8e2a000-a9fe-4b5e-b708-1eccd381d264",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}berry/:id/",
+							"host": [
+								"{{baseUrl}}berry"
+							],
+							"path": [
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "45",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBerryByName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f70ecdd4-f060-484b-9a5f-7173ac7db502",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "1cac4abb-22ff-4570-be34-ec81d2b565c8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/berry/:id/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"berry",
+								":id",
+								""
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "payapa",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "c8d6b314-792e-4a9c-963b-33747abacb1e"
+		},
+		{
+			"name": "pokemon",
+			"item": [
+				{
+					"name": "pokemonById",
+					"_postman_id": "5d93b120-0040-415f-a98b-19031bebf566",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "pokemonByName",
+					"_postman_id": "72d93ef2-66a4-42ac-8c89-6861b4369320",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "daa6da78-4722-423c-9a7c-7d9990d65b66"
+		}
+	]
+}
